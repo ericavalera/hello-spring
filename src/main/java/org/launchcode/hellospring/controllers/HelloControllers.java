@@ -7,45 +7,49 @@ import org.springframework.web.bind.annotation.*;
 @ResponseBody
 @RequestMapping("hello")
 public class HelloControllers {
-
-//    handles requests at path /hello
+    //handle request at path http://localhost:8080/hello
 
 //    @GetMapping("hello")
 //    @ResponseBody
 //    public String hello(){
 //        return "Hello, Spring!";
 //    }
-//lives hello/goodbye
+
+    //handle request at path //http://localhost:8080/hello/goodbye
     @GetMapping("goodbye")
-    public String goodBye(){
+    public String goodbye(){
         return "Goodbye, Spring!";
     }
-// Handles requests of the form /hello?name=LaunchCode
-   @RequestMapping(method ={RequestMethod.GET, RequestMethod.POST})
+
+    //handle requests of the form http://localhost:8080/hello?name=LaunchCode
+    @RequestMapping(method = {RequestMethod.GET, RequestMethod.POST})
     public String helloWithQueryParam(@RequestParam String name){
         return "Hello, " + name + "!";
     }
 
-//    handles requests of the form hello/LaunchCode
-
+    //handle requests of the form http://localhost:8080/hello/LaunchCode
     @GetMapping("{name}")
     public String helloWithPathParam(@PathVariable String name){
         return "Hello, " + name + "!";
     }
 
-//    hello/form
+    //handles requests for http://localhost:8080/hello/form
     @GetMapping("form")
-    public String helloForm(){
+    public String helloForm() {
         return "<html>" +
                 "<body>" +
-                "<form action='hello' method='post'>"+ //submit a request to /hello
-                "<input type='text' name='name'>" +
-                "<input type='submit' value='Greet me!'>"+
+                "<form action = '/hello' method = 'post'>" + // submit a request to /hello
+                "<input type = 'text' name = 'name' >" +
+                "<select name='lang'>" +
+                "<option value= 'french'> french" +
+                "</option>" +
+                "<option value= 'spanish'> spanish" +
+                "</option>" +
+                "</select>" +
+                "<input type = 'submit' value = 'Greet Me!' >" +
                 "</form>" +
                 "</body>" +
                 "</html>";
-
-
-
     }
+
 }
