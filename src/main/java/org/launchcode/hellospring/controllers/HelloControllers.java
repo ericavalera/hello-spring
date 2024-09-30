@@ -33,7 +33,7 @@ public class HelloControllers {
     } else if (lang.equals("italian")){
         greeting = "Ciao";
     }
-    return greeting + " " + name;
+    return"<b>" + greeting + " " + name + "</b>";
     };
 
 
